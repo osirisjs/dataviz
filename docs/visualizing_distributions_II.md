@@ -1,23 +1,23 @@
 
 
 
-# Visualizing distributions: Empirical cumulative density functions and q-q plots {#ecdf-qq}
+# Visualizing distributions: Empirical cumulative distribution functions and q-q plots {#ecdf-qq}
 
 In Chapter \@ref(histograms-density-plots), I described how we can visualize distributions with histograms or density plots. Both of these approaches are highly intuitive and visually appealing. However, as discussed in that chapter, they both share the limitation that the resulting figure depends to a substantial degree on parameters the user has to choose, such as the bin width for histograms and the bandwidth for density plots. As a result, both have to be considered as an interpretation of the data rather than a direct visualization of the data itself.
 
-As an alternative to using histograms or density plots, we could simply show all the data points individually, as a point cloud. However, this approach becomes unwieldy for very large datasets, and in any case there is value in aggregate methods that highlight properties of the distribution rather than the individual data points. To solve this problem, statisticians have invented empirical cumulative density functions (ecdfs) and quantile--quantile (q-q) plots. These types of visualizations require no arbitrary parameter choices, and they show all of the data at once. Unfortunately, they are a little less intuitive than a histogram or a density plot is, and I don't see them used frequently outside of highly technical publications. They are quite popular among statisticians, though, and I think anybody interested in data visualization should be familiar with these techniques.
+As an alternative to using histograms or density plots, we could simply show all the data points individually, as a point cloud. However, this approach becomes unwieldy for very large datasets, and in any case there is value in aggregate methods that highlight properties of the distribution rather than the individual data points. To solve this problem, statisticians have invented empirical cumulative distribution functions (ecdfs) and quantile--quantile (q-q) plots. These types of visualizations require no arbitrary parameter choices, and they show all of the data at once. Unfortunately, they are a little less intuitive than a histogram or a density plot is, and I don't see them used frequently outside of highly technical publications. They are quite popular among statisticians, though, and I think anybody interested in data visualization should be familiar with these techniques.
 
 
-## Empirical cumulative density functions
+## Empirical cumulative distribution functions
 
-To illustrate cumulative empirical density functions, I will begin with a hypothetical example that is closely modeled after something I deal with a lot as a professor in the classroom: a dataset of student grades. Assume our hypothetical class has 50 students, and the students just completed an exam on which they could score between 0 and 100 points. How can we best visualize the class performance, for example to determine appropriate grade boundaries?
+To illustrate cumulative empirical distribution functions, I will begin with a hypothetical example that is closely modeled after something I deal with a lot as a professor in the classroom: a dataset of student grades. Assume our hypothetical class has 50 students, and the students just completed an exam on which they could score between 0 and 100 points. How can we best visualize the class performance, for example to determine appropriate grade boundaries?
 
-We can plot the total number of students that have received at least a certain number of points versus all possible point scores. This plot will be an ascending function, starting at 0 for 0 points and ending at 50 for 100 points. A different way of thinking about this visualization is the following: We can rank all students by the number of points they obtained, in ascending order (so the student with the fewest points receives the lowest rank and the student with the most points the highest), and then plot the rank versus the actual points obtained. The result is an *empirical cumulative distribution function* (ecdf) or simply *cumulative distribution.* Each dot represents one student, and the lines visualize the highest student rank observed for any possible point value (Figure \@ref(fig:student-grades)).
+We can plot the total number of students that have received at most a certain number of points versus all possible point scores. This plot will be an ascending function, starting at 0 for 0 points and ending at 50 for 100 points. A different way of thinking about this visualization is the following: We can rank all students by the number of points they obtained, in ascending order (so the student with the fewest points receives the lowest rank and the student with the most points the highest), and then plot the rank versus the actual points obtained. The result is an *empirical cumulative distribution function* (ecdf) or simply *cumulative distribution.* Each dot represents one student, and the lines visualize the highest student rank observed for any possible point value (Figure \@ref(fig:student-grades)).
 
 (ref:student-grades) Empirical cumulative distribution function of student grades for a hypothetical class of 50 students.
 
 <div class="figure" style="text-align: center">
-<img src="visualizing_distributions_II_files/figure-html4/student-grades-1.png" alt="(ref:student-grades)" width="576" />
+<img src="visualizing_distributions_II_files/figure-html/student-grades-1.png" alt="(ref:student-grades)" width="576" />
 <p class="caption">(\#fig:student-grades)(ref:student-grades)</p>
 </div>
 
@@ -27,7 +27,7 @@ You may wonder what happens if we rank the students the other way round, in desc
 (ref:student-grades-desc) Distribution of student grades plotted as a descending ecdf.
 
 <div class="figure" style="text-align: center">
-<img src="visualizing_distributions_II_files/figure-html4/student-grades-desc-1.png" alt="(ref:student-grades-desc)" width="576" />
+<img src="visualizing_distributions_II_files/figure-html/student-grades-desc-1.png" alt="(ref:student-grades-desc)" width="576" />
 <p class="caption">(\#fig:student-grades-desc)(ref:student-grades-desc)</p>
 </div>
 
@@ -38,7 +38,7 @@ In practical applications, it is quite common to draw the ecdf without highlight
 (ref:student-grades-normalized) Ecdf of student grades. The student ranks have been normalized to the total number of students, such that the *y* values plotted correspond to the fraction of students in the class with at most that many points.
 
 <div class="figure" style="text-align: center">
-<img src="visualizing_distributions_II_files/figure-html4/student-grades-normalized-1.png" alt="(ref:student-grades-normalized)" width="576" />
+<img src="visualizing_distributions_II_files/figure-html/student-grades-normalized-1.png" alt="(ref:student-grades-normalized)" width="576" />
 <p class="caption">(\#fig:student-grades-normalized)(ref:student-grades-normalized)</p>
 </div>
 
@@ -55,7 +55,7 @@ Here, I will first discuss the number of people living in different US counties 
 (ref:county-populations) Distribution of the number of inhabitants in US counties, according to the 2010 US Census. (a) Density plot. (b) Empirical cumulative distribution function.
 
 <div class="figure" style="text-align: center">
-<img src="visualizing_distributions_II_files/figure-html4/county-populations-1.png" alt="(ref:county-populations)" width="816" />
+<img src="visualizing_distributions_II_files/figure-html/county-populations-1.png" alt="(ref:county-populations)" width="480" />
 <p class="caption">(\#fig:county-populations)(ref:county-populations)</p>
 </div>
 
@@ -64,7 +64,7 @@ The density plot (Figure \@ref(fig:county-populations)a) shows a sharp peak righ
 (ref:county-populations-log) Distribution of the logarithm of the number of inhabitants in US counties. (a) Density plot. (b) Empirical cumulative distribution function.
 
 <div class="figure" style="text-align: center">
-<img src="visualizing_distributions_II_files/figure-html4/county-populations-log-1.png" alt="(ref:county-populations-log)" width="816" />
+<img src="visualizing_distributions_II_files/figure-html/county-populations-log-1.png" alt="(ref:county-populations-log)" width="480" />
 <p class="caption">(\#fig:county-populations-log)(ref:county-populations-log)</p>
 </div>
 
@@ -73,7 +73,7 @@ To see that this distribution is not a power law, we plot it as a descending ecd
 (ref:county-populations-tail-log-log) Relative frequency of counties with at least that many inhabitants versus the number of county inhabitants.
 
 <div class="figure" style="text-align: center">
-<img src="visualizing_distributions_II_files/figure-html4/county-populations-tail-log-log-1.png" alt="(ref:county-populations-tail-log-log)" width="576" />
+<img src="visualizing_distributions_II_files/figure-html/county-populations-tail-log-log-1.png" alt="(ref:county-populations-tail-log-log)" width="576" />
 <p class="caption">(\#fig:county-populations-tail-log-log)(ref:county-populations-tail-log-log)</p>
 </div>
 
@@ -82,7 +82,7 @@ As a second example, I will use the distribution of word frequencies for all wor
 (ref:word-counts-tail-log-log) Distribution of word counts in the novel Moby Dick. Shown is the relative frequency of words that occur at least that many times in the novel versus the number of times words are used.
 
 <div class="figure" style="text-align: center">
-<img src="visualizing_distributions_II_files/figure-html4/word-counts-tail-log-log-1.png" alt="(ref:word-counts-tail-log-log)" width="576" />
+<img src="visualizing_distributions_II_files/figure-html/word-counts-tail-log-log-1.png" alt="(ref:word-counts-tail-log-log)" width="576" />
 <p class="caption">(\#fig:word-counts-tail-log-log)(ref:word-counts-tail-log-log)</p>
 </div>
 
@@ -95,7 +95,7 @@ When we perform this procedure for the student grades distribution from the begi
 (ref:student-grades-qq) q-q plot of student grades.
 
 <div class="figure" style="text-align: center">
-<img src="visualizing_distributions_II_files/figure-html4/student-grades-qq-1.png" alt="(ref:student-grades-qq)" width="576" />
+<img src="visualizing_distributions_II_files/figure-html/student-grades-qq-1.png" alt="(ref:student-grades-qq)" width="480" />
 <p class="caption">(\#fig:student-grades-qq)(ref:student-grades-qq)</p>
 </div>
 
@@ -107,7 +107,7 @@ We can also use a q-q plot to test my assertion from earlier in this chapter tha
 (ref:county-populations-qq) q-q plot of the logarithm of the number of inhabitants in US counties.
 
 <div class="figure" style="text-align: center">
-<img src="visualizing_distributions_II_files/figure-html4/county-populations-qq-1.png" alt="(ref:county-populations-qq)" width="576" />
+<img src="visualizing_distributions_II_files/figure-html/county-populations-qq-1.png" alt="(ref:county-populations-qq)" width="480" />
 <p class="caption">(\#fig:county-populations-qq)(ref:county-populations-qq)</p>
 </div>
 

@@ -4,23 +4,23 @@
 # (PART\*) Part I: From data to visualization {-}
 
 
-# Visualizing data: mapping data onto aesthetics {#aesthetic-mapping}
+# Visualizing data: Mapping data onto aesthetics {#aesthetic-mapping}
 
-Whenever we visualize data, we take data values and convert them in a systematic and logical way into the visual elements that make up the final graphic. Even though there are myriad different data visualizations, and on first glance a scatter plot, a pie chart, and a heatmap don't seem to have much in common, all these visualizations can be described with a common language that captures how data values are turned into blobs of ink on paper or colored pixels on screen. The key insight is the following: All data visualizations map data values into quantifiable features of the resulting graphic. We refer to these features as *aesthetics.*
+Whenever we visualize data, we take data values and convert them in a systematic and logical way into the visual elements that make up the final graphic. Even though there are many different types of data visualizations, and on first glance a scatter plot, a pie chart, and a heatmap don't seem to have much in common, all these visualizations can be described with a common language that captures how data values are turned into blobs of ink on paper or colored pixels on screen. The key insight is the following: All data visualizations map data values into quantifiable features of the resulting graphic. We refer to these features as *aesthetics.*
 
 ## Aesthetics and types of data
 
 Aesthetics describe every aspect of a given graphical element. A few examples are provided in Figure \@ref(fig:common-aesthetics). A critical component of every graphical element is of course its *position,* which describes where the element is located. In standard 2d graphics, we describe positions by an *x* and  *y* value, but other coordinate systems and one- or three-dimensional visualizations are possible. Next, all graphical elements have a *shape*, a *size*, and a *color.* Even if we are preparing a black-and-white drawing, graphical elements need to have a color to be visible, for example black if the background is white or white if the background is black. Finally, to the extent we are using lines to visualize data, these lines may have different widths or dash--dot patterns. Beyond the examples shown in Figure \@ref(fig:common-aesthetics), there are many other aesthetics we may encounter in a data visualization. For example, if we want to display text, we may have to specify font family, font face, and font size, and if graphical objects overlap, we may have to specify whether they are partially transparent.
 
-(ref:common-aesthetics) Commonly used aesthetics in data visualization: position, shape, size, color, line width, line type. Some of these aesthetics can represent both continuous and discrete data (position, size, line width, color) while others can only represent discrete data (shape, line type).
+(ref:common-aesthetics) Commonly used aesthetics in data visualization: position, shape, size, color, line width, line type. Some of these aesthetics can represent both continuous and discrete data (position, size, line width, color) while others can usually only represent discrete data (shape, line type).
 
 <div class="figure" style="text-align: center">
-<img src="aesthetic_mapping_files/figure-html4/common-aesthetics-1.png" alt="(ref:common-aesthetics)" width="720" />
+<img src="aesthetic_mapping_files/figure-html/common-aesthetics-1.png" alt="(ref:common-aesthetics)" width="576" />
 <p class="caption">(\#fig:common-aesthetics)(ref:common-aesthetics)</p>
 </div>
 
 
-All aesthetics fall into one of two groups: Those that can represent continuous data and those that can not. Continuous data values are values for which arbitrarily fine intermediates exist. For example, time duration is a continuous value. Between any two durations, say 50 seconds and 51 seconds, there are arbitrarily many intermediates, such as 50.5 seconds, 50.51 seconds, 50.50001 seconds, and so on. By contrast, number of persons in a room is a discrete value. A room can hold 5 persons or 6, but not 5.5. For the examples in Figure \@ref(fig:common-aesthetics), position, size, color, and line width can represent continuous data, but shape and line type can only represent discrete data.
+All aesthetics fall into one of two groups: Those that can represent continuous data and those that can not. Continuous data values are values for which arbitrarily fine intermediates exist. For example, time duration is a continuous value. Between any two durations, say 50 seconds and 51 seconds, there are arbitrarily many intermediates, such as 50.5 seconds, 50.51 seconds, 50.50001 seconds, and so on. By contrast, number of persons in a room is a discrete value. A room can hold 5 persons or 6, but not 5.5. For the examples in Figure \@ref(fig:common-aesthetics), position, size, color, and line width can represent continuous data, but shape and line type can usually only represent discrete data.
 
 Next we'll consider the types of data we may want to represent in our visualization. You may think of data as numbers, but numerical values are only two out of several types of data we may encounter. In addition to continuous and discrete numerical values, data can come in the form of discrete categories, in the form of dates or times, and as text (Table \@ref(tab:basic-data-types)). When data is numerical we also call it *quantitative* and when it is categorical we call it *qualitative*. Variables holding qualitative data are *factors*, and the different categories are called *levels*. The levels of a factor are most commonly without order (as in the example of "dog", "cat", "fish" in Table \@ref(tab:basic-data-types)), but factors can also be ordered, when there is an intrinsic order among the levels of the factor (as in the example of "good", "fair", "poor" in Table \@ref(tab:basic-data-types)).
 
@@ -86,7 +86,7 @@ To map data values onto aesthetics, we need to specify which data values corresp
 (ref:basic-scales-example) Scales link data values to aesthetics. Here, the numbers 1 through 4 have been mapped onto a position scale, a shape scale, and a color scale. For each scale, each number corresponds to a unique position, shape, or color and vice versa.
 
 <div class="figure" style="text-align: center">
-<img src="aesthetic_mapping_files/figure-html4/basic-scales-example-1.png" alt="(ref:basic-scales-example)" width="528" />
+<img src="aesthetic_mapping_files/figure-html/basic-scales-example-1.png" alt="(ref:basic-scales-example)" width="528" />
 <p class="caption">(\#fig:basic-scales-example)(ref:basic-scales-example)</p>
 </div>
 
@@ -96,16 +96,16 @@ Let's put things into practice. We can take the dataset shown in Table \@ref(tab
 (ref:temp-normals-vs-time) Daily temperature normals for four selected locations in the U.S. Temperature is mapped to the *y* axis, day of the year to the *x* axis, and location to line color. Data source: NOAA.
 
 <div class="figure" style="text-align: center">
-<img src="aesthetic_mapping_files/figure-html4/temp-normals-vs-time-1.png" alt="(ref:temp-normals-vs-time)" width="576" />
+<img src="aesthetic_mapping_files/figure-html/temp-normals-vs-time-1.png" alt="(ref:temp-normals-vs-time)" width="576" />
 <p class="caption">(\#fig:temp-normals-vs-time)(ref:temp-normals-vs-time)</p>
 </div>
 
-Figure \@ref(fig:temp-normals-vs-time) is a fairly standard visualization for a temperature curve and likely the visualization most data scientists would intuitively choose first. However, it is up to us which variables we map onto which scales. For example, instead of mapping temperature onto the *y* axis and location onto color, we can do the opposite. Because now the key variable of interest (temperature) is shown as color, we need to show sufficiently large colored areas for the color to convey useful information. Therefore, for this visualization I have chosen squares instead of lines, one for each month and location, and I have colored them by the average temperature normal for each month (Figure \@ref(fig:four-locations-temps-by-month)).
+Figure \@ref(fig:temp-normals-vs-time) is a fairly standard visualization for a temperature curve and likely the visualization most data scientists would intuitively choose first. However, it is up to us which variables we map onto which scales. For example, instead of mapping temperature onto the *y* axis and location onto color, we can do the opposite. Because now the key variable of interest (temperature) is shown as color, we need to show sufficiently large colored areas for the color to convey useful information [@Stone_et_al_2014]. Therefore, for this visualization I have chosen squares instead of lines, one for each month and location, and I have colored them by the average temperature normal for each month (Figure \@ref(fig:four-locations-temps-by-month)).
 
 (ref:four-locations-temps-by-month) Monthly normal mean temperatures for four locations in the U.S. Data source: NOAA 
 
 <div class="figure" style="text-align: center">
-<img src="aesthetic_mapping_files/figure-html4/four-locations-temps-by-month-1.png" alt="(ref:four-locations-temps-by-month)" width="816" />
+<img src="aesthetic_mapping_files/figure-html/four-locations-temps-by-month-1.png" alt="(ref:four-locations-temps-by-month)" width="754.285714285714" />
 <p class="caption">(\#fig:four-locations-temps-by-month)(ref:four-locations-temps-by-month)</p>
 </div>
 
@@ -117,7 +117,7 @@ Both Figures \@ref(fig:temp-normals-vs-time) and \@ref(fig:four-locations-temps-
 (ref:mtcars-five-scale) Fuel efficiency versus displacement, for 32 cars (1973--74 models). This figure uses five separate scales to represent data: (i) the *x* axis (displacement); (ii) the *y* axis (fuel efficiency); (iii) the color of the data points (power); (iv) the size of the data points (weight); and (v) the shape of the data points (number of cylinders). Four of the five variables displayed (displacement, fuel efficiency, power, and weight) are numerical continuous. The remaining one (number of cylinders) can be considered to be either numerical discrete or qualitative ordered. Data source: *Motor Trend*, 1974.
 
 <div class="figure" style="text-align: center">
-<img src="aesthetic_mapping_files/figure-html4/mtcars-five-scale-1.png" alt="(ref:mtcars-five-scale)" width="643.2" />
+<img src="aesthetic_mapping_files/figure-html/mtcars-five-scale-1.png" alt="(ref:mtcars-five-scale)" width="576" />
 <p class="caption">(\#fig:mtcars-five-scale)(ref:mtcars-five-scale)</p>
 </div>
 

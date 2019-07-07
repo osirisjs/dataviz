@@ -9,50 +9,74 @@ The source code for the book is available here: https://github.com/clauswilke/da
 The book was last compiled using the following environment:
 
 ```
-## R version 3.4.2 (2017-09-28)
+## R version 3.5.0 (2018-04-23)
 ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
 ## Running under: macOS Sierra 10.12.6
 ## 
 ## Matrix products: default
-## BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
 ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 ## 
 ## attached base packages:
-## [1] methods   stats     graphics  grDevices utils     datasets  base     
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] gapminder_0.3.0     RColorBrewer_1.1-2  maps_3.2.0         
-##  [4] sf_0.6-0            treemapify_2.4.0    ggrepel_0.7.0      
-##  [7] ggforce_0.1.1       lubridate_1.7.1     ggridges_0.4.1.9990
-## [10] egg_0.2.0           gridExtra_2.3       forcats_0.2.0      
-## [13] stringr_1.2.0       purrr_0.2.4         readr_1.1.1        
-## [16] tidyr_0.7.2         tibble_1.4.1        tidyverse_1.2.1    
-## [19] dviz.supp_0.1.0     dplyr_0.7.4         colorblindr_0.1.0  
-## [22] colorspace_1.4-0    cowplot_0.9.2.9900  ggplot2_2.2.1.9000 
+##  [1] nycflights13_1.0.0  gapminder_0.3.0     RColorBrewer_1.1-2 
+##  [4] gganimate_1.0.3     ungeviz_0.1.0       emmeans_1.3.1      
+##  [7] mgcv_1.8-24         nlme_3.1-137        broom_0.5.1        
+## [10] tidybayes_1.0.3     maps_3.3.0          statebins_2.0.0    
+## [13] sf_0.7-3            maptools_0.9-4      sp_1.3-1           
+## [16] rgeos_0.3-28        ggspatial_1.0.3     geofacet_0.1.9     
+## [19] plot3D_1.1.1        magick_1.9          hexbin_1.27.2      
+## [22] treemapify_2.5.0    gridExtra_2.3       ggmap_2.7.904      
+## [25] ggthemes_4.0.1      ggridges_0.5.1.9000 ggrepel_0.8.0      
+## [28] ggforce_0.2.1       patchwork_0.0.1     lubridate_1.7.4    
+## [31] forcats_0.3.0       stringr_1.3.1       purrr_0.2.5        
+## [34] readr_1.1.1         tidyr_0.8.2         tibble_2.0.1       
+## [37] tidyverse_1.2.1     dviz.supp_0.1.0     dplyr_0.8.0.1      
+## [40] colorblindr_0.1.0   ggplot2_3.1.1       colorspace_1.4-1   
+## [43] cowplot_0.9.99     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] httr_1.3.1        jsonlite_1.5      modelr_0.1.1     
-##  [4] assertthat_0.2.0  cellranger_1.1.0  yaml_2.1.16      
-##  [7] pillar_1.1.0      backports_1.1.1   lattice_0.20-35  
-## [10] glue_1.2.0        digest_0.6.15     polyclip_1.6-1   
-## [13] rvest_0.3.2       htmltools_0.3.6   plyr_1.8.4       
-## [16] psych_1.7.8       pkgconfig_2.0.1   broom_0.4.2      
-## [19] haven_1.1.0       bookdown_0.5.14   scales_0.5.0.9000
-## [22] tweenr_0.1.5      withr_2.1.1.9000  lazyeval_0.2.1   
-## [25] cli_1.0.0         mnormt_1.5-5      magrittr_1.5     
-## [28] crayon_1.3.4      readxl_1.0.0      deldir_0.1-14    
-## [31] evaluate_0.10.1   nlme_3.1-131      MASS_7.3-47      
-## [34] xml2_1.1.1        foreign_0.8-69    class_7.3-14     
-## [37] tools_3.4.2       hms_0.3           munsell_0.4.3    
-## [40] bindrcpp_0.2      compiler_3.4.2    e1071_1.6-8      
-## [43] concaveman_1.0.0  rlang_0.2.0.9000  classInt_0.1-24  
-## [46] units_0.5-1       grid_3.4.2        rstudioapi_0.7   
-## [49] rmarkdown_1.8     gtable_0.2.0      DBI_0.7          
-## [52] reshape2_1.4.3    R6_2.2.2          knitr_1.18       
-## [55] udunits2_0.13     bindr_0.1         rprojroot_1.2    
-## [58] stringi_1.1.5     parallel_3.4.2    Rcpp_0.12.16     
-## [61] ggfittext_0.5.0
+##  [1] rjson_0.2.20              class_7.3-14             
+##  [3] rprojroot_1.3-2           estimability_1.3         
+##  [5] ggstance_0.3.1            rstudioapi_0.7           
+##  [7] farver_1.0.0.9999         ggfittext_0.6.0          
+##  [9] svUnit_0.7-12             mvtnorm_1.0-8            
+## [11] xml2_1.2.0                knitr_1.20               
+## [13] polyclip_1.9-1            jsonlite_1.5             
+## [15] png_0.1-7                 compiler_3.5.0           
+## [17] httr_1.3.1                backports_1.1.2          
+## [19] assertthat_0.2.0          Matrix_1.2-14            
+## [21] lazyeval_0.2.1            cli_1.0.1.9000           
+## [23] tweenr_1.0.1              prettyunits_1.0.2        
+## [25] htmltools_0.3.6           tools_3.5.0              
+## [27] misc3d_0.8-4              coda_0.19-2              
+## [29] gtable_0.2.0              glue_1.3.0               
+## [31] Rcpp_1.0.0                cellranger_1.1.0         
+## [33] imguR_1.0.3               xfun_0.3                 
+## [35] strapgod_0.0.0.9000       rvest_0.3.2              
+## [37] MASS_7.3-50               scales_1.0.0             
+## [39] hms_0.4.2                 yaml_2.2.0               
+## [41] stringi_1.2.4             e1071_1.7-0              
+## [43] spData_0.2.9.4            RgoogleMaps_1.4.3        
+## [45] rlang_0.3.1               pkgconfig_2.0.2          
+## [47] bitops_1.0-6              geogrid_0.1.1            
+## [49] evaluate_0.11             lattice_0.20-35          
+## [51] tidyselect_0.2.5          plyr_1.8.4               
+## [53] magrittr_1.5              bookdown_0.7             
+## [55] R6_2.3.0                  generics_0.0.2           
+## [57] DBI_1.0.0                 pillar_1.3.1             
+## [59] haven_1.1.2               foreign_0.8-71           
+## [61] withr_2.1.2.9000          units_0.6-1              
+## [63] modelr_0.1.2              crayon_1.3.4             
+## [65] arrayhelpers_1.0-20160527 rmarkdown_1.10           
+## [67] progress_1.2.0.9000       jpeg_0.1-8               
+## [69] rnaturalearth_0.1.0       grid_3.5.0               
+## [71] readxl_1.1.0              digest_0.6.18            
+## [73] classInt_0.2-3            xtable_1.8-3             
+## [75] munsell_0.5.0
 ```

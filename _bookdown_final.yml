@@ -6,7 +6,7 @@ rmd_files: [
   "index.Rmd",
 
   "preface.Rmd",
-  #"introduction.Rmd",
+  "introduction.Rmd",
 
   # Part I
   "aesthetic_mapping.Rmd", # completed
@@ -18,27 +18,33 @@ rmd_files: [
   "visualizing_distributions_II.Rmd", # completed
   "boxplots_violins.Rmd", # completed
   "visualizing_proportions.Rmd", # completed
+  "nested_proportions.Rmd", # completed
+  "visualizing_associations.Rmd", # completed
+  "time_series.Rmd", # completed
+  "visualizing_trends.Rmd", # completed
+  "geospatial_data.Rmd", # completed
+  "visualizing_uncertainty.Rmd", # completed
 
   # Part II
 
-  "small_axis_labels.Rmd", # completed
-
-  ##"maximize_data_signal.Rmd",
   "proportional_ink.Rmd", # completed
   "overlapping_points.Rmd", # completed
-  "avoid_line_drawings.Rmd", # completed
   "pitfalls_of_color_use.Rmd", # completed
   "redundant_coding.Rmd", # completed
+  "multi-panel_figures.Rmd", # completed
+  "figure_titles_captions.Rmd", # completed
+  "balance_data_context.Rmd", # completed
+  "small_axis_labels.Rmd", # completed
+  "avoid_line_drawings.Rmd", # completed
+  "no_3d.Rmd", # completed
 
   # Part III
   "image_file_formats.Rmd", # completed
-  "choosing_plotting_software.Rmd", # completed
+  "choosing_visualization_software.Rmd", # completed
   "telling_a_story.Rmd", # completed
+  "annotated_bibliography.Rmd",
 
-  "outline.Rmd",
   "technical_notes.Rmd",
-
-  #"notes.Rmd",
 
   "references.Rmd"
 ]
